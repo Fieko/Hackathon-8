@@ -163,11 +163,42 @@ def check_email(email):
     
 
 def stud_grade():
-    pass
+sumOfallGrades = grade1+grade2+grade3+grade4+grade5
+average = sumOfallGrades/5
 
-def status():
-    pass
 
+def status():	
+if average >= 90:
+        print(name + "is passing with an letter grade of A")
+    elif average >= 80:
+        print(name + "is passing with an letter grade of B")
+    elif average >= 70:
+        print("*CAUTION* " + name + "is passing with an letter grade of C")
+    elif average >= 60:
+        print("*CAUTION* " + name + "is passing with an letter grade of D, but will not recieve credit points from the University")
+    else:
+        print("*CAUTION* " + "The student " + name + " is failing the class, We are sending an email to Alert you now")
+	email_sender = "codefriendlyvsu@gmail.com"
+	email_password ="ydjhkctorziqkfnz"
+	email_reciever = "darienwalker121@outlook.com"
+	student1 = "Nichalos"
+	
+	subject = "STUDENT ACADEMIC WARNING"
+	body = """
+	NOTICE: Your Student """ + student1 """is currently in Academic Warning status Please email you student and schedule an appointment. 
+	
+	"""
+	em = EmailMessage()
+	em["From"] = email_sender 
+	em['To'] = email_reciever
+	em['Subject'] = subject 
+	em.set_content(body)
+	
+	context = ssl.create_default_context()
+	
+	with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+		smtp.login(email_sender, email_password)
+		smtp.sendmail(email_sender, email_reciever, em.as_string())
 
 
     
