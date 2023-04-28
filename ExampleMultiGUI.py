@@ -185,7 +185,7 @@ if average >= 90:
 	
 	subject = "STUDENT ACADEMIC WARNING"
 	body = """
-	NOTICE: Your Student """ + student1 """is currently in Academic Warning status Please email you student and schedule an appointment. 
+	NOTICE: Your Student """ + student1 """has reached academic UNSATISFACTORY. Please email you student and schedule an appointment. 
 	
 	"""
 	em = EmailMessage()
